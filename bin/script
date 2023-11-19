@@ -1,0 +1,68 @@
+#!/usr/bin/env php
+<?php
+
+if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+    require_once(__DIR__ . '/../vendor/autoload.php');
+} elseif (file_exists(__DIR__ . '/../../vendor/autoload.php')) {
+    require_once(__DIR__ . '/../../vendor/autoload.php');
+} else {
+    throw new \Exception('Unable to load autoloader');
+}
+
+const VERSION = "1.0.0";
+
+error_reporting(E_ALL);
+
+
+$shortopts  = "";
+$shortopts .= "f:";  // Valeur requise
+$shortopts .= "v::"; // Valeur optionnelle
+$shortopts .= "abc"; // Ces options n'acceptent pas de valeur
+
+$longopts  = array(
+    "required:",     // Valeur requise
+    "optional::",    // Valeur optionnelle
+    "option",        // Aucune valeur
+    "opt",           // Aucune valeur
+);
+$options = getopt($shortopts, $longopts);
+
+/**
+ * shell> php script -f "value for f" -v -a --required value --optional="optional value" --option
+ */
+/**
+    array(6) {
+        ["f"]=>
+        string(11) "value for f"
+        ["v"]=>
+        bool(false)
+        ["a"]=>
+        bool(false)
+        ["required"]=>
+        string(5) "value"
+        ["optional"]=>
+        string(14) "optional value"
+        ["option"]=>
+        bool(false)
+    }
+ */
+
+
+
+  function help($VERSION = VERSION){
+      $help = <<<EOF
+
+Usage: script [--option value]
+
+Options:
+  --version         The Script version: {$VERSION}.
+  --help (-h)       Display this help message.
+
+
+EOF;
+      print $help;
+
+      exit(1);
+  }
+
+exit(true ? 1 : 0);

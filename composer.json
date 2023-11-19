@@ -1,0 +1,46 @@
+{
+    "name": "joussin/package-template",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/joussin/package-template",
+    "description": "Development package template",
+    "keywords": ["package"],
+    "authors": [
+        {
+            "name": "Joussin Stéphane",
+            "email": "joussin@live.com",
+            "role": "Developer"
+        }
+    ],
+
+    "require": {
+        "php": ">=7.2.0"
+    },
+
+    "require-dev": {
+        "symfony/var-dumper": "^6.3"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Joussin\\PackageTemplate\\": "src/"
+        },
+        "files": [
+            "src/helpers/functions.php"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        },
+        "laravel": {}
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "conflict": {},
+    "suggest": {},
+    "scripts": {},
+    "config": {
+        "sort-packages": true
+    }
+}
