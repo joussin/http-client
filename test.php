@@ -1,57 +1,11 @@
+<?php
 
-# Github:
+use Joussin\Component\HttpClient\HttpDefinitions\HttpMessage;
 
-https://github.com/joussin/http-client
-
-
-# Installation via Composer:
-
-````json
-{
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/joussin/http-client.git"
-    }
-  ],
-  "require": {
-    "joussin/http-client": "dev-develop"
-  }
-}
-````
+require __DIR__ . '/vendor/autoload.php';
 
 
 
---- 
-
-
-# Psr Implementation
-
-
-psr18: psr/http-client
-psr17: psr/http-factory
-psr7: psr/http-message
-
-
-````json
-{
-
-  "require-dev": {
-    "psr/http-client": "^1.0",
-    "psr/http-factory": "^1.0"
-  },
-
-  "provide": {
-    "psr/http-client-implementation": "1.0"
-  }
-}
-
-
-````
-
-Example:
-
-````php
 
 $url = 'https://jsonplaceholder.typicode.com';
 
@@ -116,4 +70,7 @@ dd(
     '$response', $response, $content
 );
 
-````
+
+
+
+

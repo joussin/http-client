@@ -1,9 +1,9 @@
 {
-    "name": "joussin/package-template",
+    "name": "joussin/http-client",
     "type": "library",
     "license": "MIT",
-    "homepage": "https://github.com/joussin/package-template",
-    "description": "Development package template",
+    "homepage": "https://github.com/joussin/http-client",
+    "description": "A psr http-client implementation",
     "keywords": ["package"],
     "authors": [
         {
@@ -14,7 +14,9 @@
     ],
 
     "require": {
-        "php": ">=7.2.0"
+        "php": ">=7.2.0",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0"
     },
 
     "require-dev": {
@@ -23,11 +25,8 @@
 
     "autoload": {
         "psr-4": {
-            "Joussin\\PackageTemplate\\": "src/"
-        },
-        "files": [
-            "src/helpers/functions.php"
-        ]
+            "Joussin\\Component\\HttpClient\\": "src/"
+        }
     },
     "extra": {
         "branch-alias": {
@@ -41,6 +40,9 @@
     "suggest": {},
     "scripts": {},
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     }
 }
